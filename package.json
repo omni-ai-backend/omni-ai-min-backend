@@ -1,10 +1,11 @@
 {
-  "name": "omni-ai-min-backend",
-  "version": "0.1.0",
+  "name": "omni-ai-backend-full",
+  "version": "1.0.0",
   "private": true,
-  "type": "module",
+  "description": "Omni AI Serverless Backend (EN/AR, health/version, simple KB, CORS)",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "dependencies": {}
+  "license": "MIT"
 }

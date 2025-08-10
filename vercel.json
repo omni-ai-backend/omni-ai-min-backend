@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/chat.js",
+      "src": "api/*.js",
       "use": "@vercel/node"
     }
   ],
@@ -10,6 +10,14 @@
     {
       "src": "/api/chat",
       "dest": "api/chat.js"
+    },
+    {
+      "src": "/api/health",
+      "dest": "api/health.js"
+    },
+    {
+      "src": "/api/version",
+      "dest": "api/version.js"
     }
   ]
 }

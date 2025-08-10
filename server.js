@@ -1,12 +1,14 @@
-import http from 'http';
-import { handler } from './api/chat.js';
+
+const http = require('http');
+const { chatHandler } = require('./api/chat.js');
+const { healthHandler } = require('./api/health.js');
+const { versionHandler } = require('./api/version.js');
 
 const server = http.createServer(async (req, res) => {
-  if (req.url.startsWith('/api/chat')) {
-    await handler(req, res);
-  } else {
-    res.writeHead(200, {'Content-Type':'text/plain'});
-    res.end('Omni AI Minimal Backend running. Use POST /api/chat');
-  }
+  if (req.url.startsWith('/api/chat')) return chatHandler(req, res);
+  if (req.url.startsWith('/api/health')) return healthHandler(req, res);
+  if (req.url.startsWith('/api/version')) return versionHandler(req, res);
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Omni AI Backend up. Endpoints: /api/chat, /api/health, /api/version');
 });
-server.listen(3000, ()=> console.log('http://localhost:3000'));
+server.listen(3000, ()=> console.log('Local: http://localhost:3000'));
